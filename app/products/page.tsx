@@ -47,7 +47,13 @@ export async function generateMetadata(
 		// @ts-ignore
 		openGraph: {
 			images: [`/api/og?q=${q}`],
+			locale: 'es_CO',
+			siteName: 'PC Price Tracker',
+			description: `¡Encuentra los mejores precios para "${q}" en cuestión de segundos!`,
+			authors: ['Andrés Rodríguez'],
+			countryName: 'Colombia',
 		},
+		metadataBase: new URL('https://pc-price-tracker.vercel.app/'),
 		description:
 			'Busca el producto que necesites y encuentra su mejor precio en segundos.',
 	};
