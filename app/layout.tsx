@@ -2,6 +2,7 @@ import type { FC, PropsWithChildren } from 'react';
 
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
@@ -41,6 +42,7 @@ const RootLayout: FC<$RootLayout> = ({ children }) => {
 				<Navbar />
 				{children}
 				<Footer />
+				{process.env.NODE_ENV === 'production' && <Analytics />}
 			</body>
 		</html>
 	);
