@@ -17,7 +17,7 @@ export const Footer = () => {
 					<Link
 						href='https://github.com/pulgueta'
 						target='_blank'
-						className='hover:und flex items-center justify-end gap-x-1 font-semibold'
+						className='flex items-center justify-end gap-x-1 font-semibold hover:underline'
 					>
 						<GitHubLogo />
 						GitHub
@@ -27,7 +27,7 @@ export const Footer = () => {
 					<Link
 						href='https://twitter.com/pulgueta_'
 						target='_blank'
-						className='hover:und flex items-center justify-end gap-x-1 font-semibold'
+						className='flex items-center justify-end gap-x-1 font-semibold hover:underline'
 					>
 						<TwitterLogo /> X (Twitter)
 					</Link>
