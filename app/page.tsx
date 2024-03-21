@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import { SearchBar } from '@/components/search-bar';
 
 const Home = () => {
@@ -7,15 +9,46 @@ const Home = () => {
 				Todos los precios de tus componentes favoritos
 			</h1>
 			<h2 className='text-wrap text-center text-2xl font-bold leading-none tracking-tighter opacity-80 drop-shadow-sm md:text-3xl lg:text-4xl'>
-				En un solo lugar
+				¡En un solo lugar!
 			</h2>
 			<section>
 				<h3 className='text-wrap text-center text-lg font-semibold leading-none tracking-tighter opacity-80 drop-shadow-sm md:text-xl lg:text-2xl'>
-					Encontrarás precios de:
+					Aquí encontrarás precios de:
 				</h3>
-				<div className='mx-4 mt-4 inline-block size-20 rounded bg-gray-400'></div>
-				<div className='mx-4 mt-4 inline-block size-20 rounded bg-gray-400'></div>
-				<div className='mx-4 mt-4 inline-block size-20 rounded bg-gray-400'></div>
+				<div className='flex items-center gap-x-8 overflow-x-scroll md:overflow-x-auto'>
+					<Image
+						decoding='async'
+						src='/tauretlogo.webp'
+						alt='TauretComputadores Logo'
+						width={100}
+						height={100}
+						className='drop-shadow grayscale'
+					/>
+					<Image
+						decoding='async'
+						src='/speedlogiclogo.webp'
+						alt='Speed Logic Logo'
+						width={128}
+						height={128}
+						className='drop-shadow grayscale'
+					/>
+					<Image
+						decoding='async'
+						src='/themarklogo.webp'
+						alt='TheMark Logo'
+						width={80}
+						height={80}
+						className='drop-shadow grayscale'
+					/>
+					<Image
+						decoding='async'
+						src='/clonesyperifericoslogo.webp'
+						alt='Clones Y Periféricos Logo'
+						width={128}
+						height={128}
+						className='drop-shadow grayscale'
+					/>
+				</div>
 			</section>
 			<div
 				aria-hidden
