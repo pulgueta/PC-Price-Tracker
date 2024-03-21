@@ -28,7 +28,7 @@ export const Navbar = () => {
 				PCComp Tracker
 			</Link>
 
-			<div className='flex max-w-xs items-center space-x-2 md:max-w-5xl'>
+			<div className='flex max-w-xs items-center space-x-2 md:max-w-lg'>
 				{mediumScreen ? (
 					<>
 						<DropdownMenu>
@@ -37,14 +37,26 @@ export const Navbar = () => {
 							</DropdownMenuTrigger>
 							<DropdownMenuContent>
 								<DropdownMenuSeparator />
-								<DropdownMenuItem className='space-x-2'>
+								<DropdownMenuItem>
 									<SearchBar />
 								</DropdownMenuItem>
-								<DropdownMenuItem className='cursor-pointer'>
-									Ver productos
+								<DropdownMenuItem
+									className='cursor-pointer'
+									asChild
+								>
+									<Link href='/'>Inicio</Link>
 								</DropdownMenuItem>
-								<DropdownMenuItem className='cursor-pointer'>
-									Favoritos
+								<DropdownMenuItem
+									className='cursor-pointer'
+									asChild
+								>
+									<Link href='/products'>Ver productos</Link>
+								</DropdownMenuItem>
+								<DropdownMenuItem
+									className='cursor-pointer'
+									asChild
+								>
+									<Link href='/favorites'>Favoritos</Link>
 								</DropdownMenuItem>
 							</DropdownMenuContent>
 						</DropdownMenu>
@@ -62,8 +74,8 @@ export const Navbar = () => {
 					</>
 				) : (
 					<div className='flex items-center gap-x-6'>
-						<Link href='/'>Ver productos</Link>
-						<Link href='/'>Favoritos</Link>
+						<Link href='/products'>Ver productos</Link>
+						<Link href='/favorites'>Favoritos</Link>
 						<Link href='/auth' className={buttonVariants()}>
 							<UserIcon
 								className={cn('size-4', {
