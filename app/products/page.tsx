@@ -41,15 +41,21 @@ export async function generateMetadata(
 ): Promise<ResolvingMetadata> {
 	const q = searchParams.q;
 
+	const text = q === undefined ? '' : q;
+	const description =
+		q !== undefined
+			? `¡Encuentra los mejores precios para "${text}" en cuestión de segundos!`
+			: '¡Encuentra los mejores precios de componentes de PC en cuestión de segundos!';
+
 	return {
 		// @ts-ignore
 		title: q ? `Búsqueda de producto: ${q}` : 'Búsqueda de productos',
 		// @ts-ignore
 		openGraph: {
-			images: [`/api/og?q=${q}`],
+			images: [`/api/og?q=${text}`],
 			locale: 'es_CO',
 			siteName: 'PC Price Tracker',
-			description: `¡Encuentra los mejores precios para "${q}" en cuestión de segundos!`,
+			description,
 			authors: ['Andrés Rodríguez'],
 			countryName: 'Colombia',
 		},
