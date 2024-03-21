@@ -17,36 +17,32 @@ const Home = () => {
 				</h3>
 				<div className='flex items-center gap-x-8 overflow-x-scroll md:overflow-x-auto'>
 					<Image
-						decoding='async'
 						src='/tauretlogo.webp'
 						alt='TauretComputadores Logo'
 						width={100}
 						height={100}
-						className='drop-shadow grayscale'
+						className='drop-shadow grayscale transition hover:grayscale-0'
 					/>
 					<Image
-						decoding='async'
 						src='/speedlogiclogo.webp'
 						alt='Speed Logic Logo'
 						width={128}
 						height={128}
-						className='drop-shadow grayscale'
+						className='drop-shadow grayscale transition hover:grayscale-0'
 					/>
 					<Image
-						decoding='async'
 						src='/themarklogo.webp'
 						alt='TheMark Logo'
 						width={80}
 						height={80}
-						className='drop-shadow grayscale'
+						className='drop-shadow grayscale transition hover:grayscale-0'
 					/>
 					<Image
-						decoding='async'
 						src='/clonesyperifericoslogo.webp'
 						alt='Clones Y Periféricos Logo'
 						width={128}
 						height={128}
-						className='drop-shadow grayscale'
+						className='drop-shadow grayscale transition hover:grayscale-0'
 					/>
 				</div>
 			</section>
