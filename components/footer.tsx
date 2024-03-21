@@ -15,8 +15,9 @@ export const Footer = () => {
 			<ul className='flex flex-col gap-4 text-right tracking-tighter md:flex-row md:text-sm'>
 				<li>
 					<Link
-						href='/products'
-						className='flex items-center justify-end gap-x-1 font-semibold'
+						href='https://github.com/pulgueta'
+						target='_blank'
+						className='hover:und flex items-center justify-end gap-x-1 font-semibold'
 					>
 						<GitHubLogo />
 						GitHub
@@ -24,8 +25,9 @@ export const Footer = () => {
 				</li>
 				<li>
 					<Link
-						href='/products'
-						className='flex items-center justify-end gap-x-1 font-semibold'
+						href='https://twitter.com/pulgueta_'
+						target='_blank'
+						className='hover:und flex items-center justify-end gap-x-1 font-semibold'
 					>
 						<TwitterLogo /> X (Twitter)
 					</Link>
