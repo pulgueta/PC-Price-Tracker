@@ -1,4 +1,14 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+import { next } from 'million/compiler'
 
-export default nextConfig;
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    poweredByHeader: false,
+    reactStrictMode: true,
+    logging: {
+        fetches: {
+            fullUrl: true,
+        }
+    },
+};
+
+export default next(nextConfig);
