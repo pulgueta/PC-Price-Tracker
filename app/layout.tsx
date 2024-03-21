@@ -3,6 +3,9 @@ import type { FC, PropsWithChildren } from 'react';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
+import { Navbar } from '@/components/navbar';
+import { Footer } from '@/components/footer';
+
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -34,7 +37,11 @@ type $RootLayout = PropsWithChildren & {};
 const RootLayout: FC<$RootLayout> = ({ children }) => {
 	return (
 		<html lang='es'>
-			<body className={inter.className}>{children}</body>
+			<body className={inter.className}>
+				<Navbar />
+				{children}
+				<Footer />
+			</body>
 		</html>
 	);
 };
