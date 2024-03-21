@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 
+import { ProgressProvider } from '@/providers/progress-bar-provider';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
 
@@ -39,9 +40,11 @@ const RootLayout: FC<$RootLayout> = ({ children }) => {
 	return (
 		<html lang='es'>
 			<body className={inter.className}>
-				<Navbar />
-				{children}
-				<Footer />
+				<ProgressProvider>
+					<Navbar />
+					{children}
+					<Footer />
+				</ProgressProvider>
 				{process.env.NODE_ENV === 'production' && <Analytics />}
 			</body>
 		</html>
