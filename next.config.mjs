@@ -9,6 +9,7 @@ const nextConfig = {
             fullUrl: true,
         }
     },
+    experimental: { typedRoutes: true }
 };
 
 export default next(nextConfig);
