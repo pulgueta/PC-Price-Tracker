@@ -9,7 +9,7 @@ export const GET = async (req: NextRequest) => {
 	const hasQuery = searchParams.get('q') as string;
 
 	const q =
-		hasQuery.length <= 3
+		hasQuery.length >= 3
 			? `Búsqueda: ${hasQuery}`
 			: 'Búsqueda de productos';
 
