@@ -9,7 +9,7 @@ const Auth = () => {
 	const mediumScreen = useMediaQuery('(max-width: 990px)');
 
 	return (
-		<div className='relative flex min-h-dvh flex-col items-center justify-center gap-4 p-4 md:min-h-[calc(100vh-162px)] md:p-8 lg:min-h-[calc(100vh-160px)]'>
+		<div className='flex min-h-dvh flex-col items-center justify-center gap-4 p-4 md:min-h-[calc(100vh-162px)] md:p-8 lg:min-h-[calc(100vh-160px)]'>
 			<article className='flex flex-col gap-8 rounded border p-8 shadow lg:flex-row'>
 				<LoginForm />
 				{mediumScreen ? (
