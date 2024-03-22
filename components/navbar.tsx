@@ -33,7 +33,7 @@ export const Navbar = () => {
 					<>
 						<DropdownMenu>
 							<DropdownMenuTrigger className='rounded border p-2'>
-								<MenuIcon />
+								<MenuIcon aria-label='Menú móvil' />
 							</DropdownMenuTrigger>
 							<DropdownMenuContent>
 								<DropdownMenuSeparator />
@@ -65,6 +65,7 @@ export const Navbar = () => {
 							className={buttonVariants({ size: 'icon' })}
 						>
 							<UserIcon
+								aria-label='Iniciar sesión'
 								className={cn('size-4', {
 									'mr-2': !mediumScreen,
 								})}
