@@ -16,7 +16,7 @@ type $Products = {
 const Products: NextPage<$Products> = ({ searchParams }) => {
 	return (
 		<div className='flex min-h-dvh flex-col items-center gap-4 md:min-h-[calc(100vh-162px)] lg:min-h-[calc(100vh-160px)]'>
-			{process.env.NODE_ENV === 'development' && (
+			{process.env.NODE_ENV === 'production' && (
 				<>
 					<Script
 						async
