@@ -1,6 +1,6 @@
-import { Button } from '../ui/button';
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
+import { SubmitButton } from './submit-button';
 
 export const LoginForm = () => {
 	return (
@@ -22,9 +22,7 @@ export const LoginForm = () => {
 				className='mt-2'
 				name='password'
 			/>
-			<Button type='submit' className='my-4 w-full'>
-				Autenticarme
-			</Button>
+			<SubmitButton label='Ingresar' />
 		</form>
 	);
 };
