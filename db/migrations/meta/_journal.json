@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1711085071716,
+      "tag": "0000_first_professor_monster",
+      "breakpoints": true
+    }
+  ]
+}
