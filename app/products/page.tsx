@@ -1,8 +1,10 @@
 import type { NextPage, ResolvingMetadata } from 'next';
+import Script from 'next/script';
 
 import { QueryBox } from '@/components/query-box';
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
+import { env } from '@/env/client/index.mjs';
 
 type $Products = {
 	searchParams: {
@@ -13,6 +15,12 @@ type $Products = {
 const Products: NextPage<$Products> = ({ searchParams }) => {
 	return (
 		<div className='flex min-h-dvh flex-col items-center gap-4 md:min-h-[calc(100vh-162px)] lg:min-h-[calc(100vh-160px)]'>
+			<Script
+				async
+				strategy='lazyOnload'
+				crossOrigin='anonymous'
+				src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${env.NEXT_PUBLIC_ADSENSE_ID}`}
+			/>
 			{searchParams.q && <QueryBox query={searchParams.q} />}
 
 			<h1
