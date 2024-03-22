@@ -4,7 +4,7 @@ import 'dotenv/config';
 import { env } from './env/server/index.mjs';
 
 export default {
-	schema: ['./db/schema.ts'],
+	schema: ['./db/schemas/user.ts'],
 	out: './db/migrations',
 	driver: 'turso',
 	dbCredentials: {
