@@ -7,3 +7,5 @@ export const userSchema = sqliteTable('users', {
 	email: text('email').notNull().unique(),
 	password: text('password', { length: 32 }).notNull(),
 });
+
+export type UserSchema = typeof userSchema.$inferInsert;
