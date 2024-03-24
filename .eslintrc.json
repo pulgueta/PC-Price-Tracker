@@ -3,8 +3,7 @@
 		"next/core-web-vitals",
 		"prettier",
 		"plugin:tailwindcss/recommended",
-		"plugin:@typescript-eslint/eslint-plugin",
-		"plugin:eslint-plugin-prettier"
+		"plugin:eslint-plugin-prettier/recommended"
 	],
 	"overrides": [
 		{
