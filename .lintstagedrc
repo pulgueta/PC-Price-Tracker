@@ -1,5 +1,6 @@
 {
-    "**/*.{ts, tsx}": [
-        "eslint"
-    ]
+	"**/*.{ts, tsx}": [
+		"eslint --fix",
+		"prettier --check --write"
+	]
 }
