@@ -1,4 +1,4 @@
-import { object, string } from 'zod';
+import { TypeOf, object, string } from 'zod';
 
 export const registerSchema = object({
 	email: string()
@@ -16,3 +16,5 @@ export const registerSchema = object({
 	message: 'Las contraseñas deben coincidir',
 	path: ['confirmPassword'],
 });
+
+export type Register = TypeOf<typeof registerSchema>;
