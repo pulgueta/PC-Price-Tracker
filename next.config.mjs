@@ -1,3 +1,4 @@
+import { withSentryConfig } from '@sentry/nextjs';
 import { next } from 'million/compiler'
 
 import './env/server/index.mjs'
@@ -14,4 +15,15 @@ const nextConfig = {
 	experimental: { typedRoutes: true }
 };
 
-export default next(nextConfig);
+export default withSentryConfig(next(nextConfig), {
+	silent: true,
+	org: 'andres-rodriguez',
+	project: 'pc-price-tracker',
+}, {
+	widenClientFileUpload: true,
+	transpileClientSDK: true,
+	tunnelRoute: '/monitoring',
+	hideSourceMaps: true,
+	disableLogger: true,
+	automaticVercelMonitors: true,
+});
