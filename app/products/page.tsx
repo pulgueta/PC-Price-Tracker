@@ -11,6 +11,8 @@ type $Products = {
 	};
 };
 
+export const runtime = 'edge';
+
 const Products: NextPage<$Products> = ({ searchParams }) => {
 	return (
 		<div className='flex min-h-dvh flex-col items-center gap-4 md:min-h-[calc(100vh-162px)] lg:min-h-[calc(100vh-160px)]'>
