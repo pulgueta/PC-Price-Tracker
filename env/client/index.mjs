@@ -11,6 +11,9 @@ export const env = createEnv({
 		NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN,
 	},
 	onValidationError: (error = ZodError) => {
-		throw new Error('[*] Invalid environment variables', error.flatten().fieldErrors);
+		throw new Error(
+			'[*] Invalid environment variables',
+			error.flatten().fieldErrors,
+		);
 	},
 });

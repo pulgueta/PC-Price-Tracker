@@ -1,5 +1,6 @@
 export const TwitterLogo = () => (
 	<svg
+		// eslint-disable-next-line tailwindcss/no-custom-classname
 		className='icon icon-tabler icon-tabler-brand-twitter-filled'
 		width='20'
 		height='20'

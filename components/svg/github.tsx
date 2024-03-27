@@ -1,5 +1,6 @@
 export const GitHubLogo = () => (
 	<svg
+		// eslint-disable-next-line tailwindcss/no-custom-classname
 		className='icon icon-tabler icon-tabler-brand-github-filled'
 		width='20'
 		height='20'

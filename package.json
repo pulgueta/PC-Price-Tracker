@@ -5,10 +5,11 @@
 	"author": "Andrés Rodríguez <roariasaf@gmail.com>",
 	"scripts": {
 		"dev": "next dev",
-		"build": "next build",
+		"build": "pnpm prettier && next build",
 		"start": "next start",
 		"lint": "next lint",
-		"prepare": "husky"
+		"prepare": "husky",
+		"prettier": "eslint --fix && prettier --check . --write"
 	},
 	"dependencies": {
 		"@auth/drizzle-adapter": "^0.8.0",

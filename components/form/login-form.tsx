@@ -28,7 +28,7 @@ export const LoginForm = () => {
 			form.current?.reset();
 			push('/');
 		}
-	}, [state]);
+	}, [push, state]);
 
 	return (
 		<form ref={form} action={formAction}>
