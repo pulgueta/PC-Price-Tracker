@@ -15,7 +15,7 @@ export const Footer = () => {
 			<ul className='flex flex-col gap-4 text-right tracking-tighter md:flex-row md:text-sm'>
 				<li>
 					<Link
-						href='https://github.com/pulgueta'
+						href='https://github.com/pulgueta/PC-Price-Tracker'
 						target='_blank'
 						className='flex items-center justify-end gap-x-1 font-semibold hover:underline'
 					>
