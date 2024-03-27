@@ -1,12 +1,14 @@
 import type { FC, PropsWithChildren } from 'react';
 
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 
 import { ProgressProvider } from '@/providers/progress-bar-provider';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
+import { env } from '@/env/client/index.mjs';
 
 import './globals.css';
 
@@ -42,6 +44,14 @@ const RootLayout: FC<$RootLayout> = ({ children }) => {
 			<body className={inter.className}>
 				<ProgressProvider>
 					<Navbar />
+					{process.env.NODE_ENV === 'production' && (
+						<Script
+							async
+							strategy='lazyOnload'
+							crossOrigin='anonymous'
+							src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${env.NEXT_PUBLIC_ADSENSE_ID}`}
+						/>
+					)}
 					{children}
 					<Footer />
 				</ProgressProvider>
