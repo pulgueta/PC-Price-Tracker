@@ -26,7 +26,7 @@ export const RegisterForm = () => {
 			form.current?.reset();
 			refresh();
 		}
-	}, [state]);
+	}, [refresh, state]);
 
 	return (
 		<form action={formAction} ref={form}>

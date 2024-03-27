@@ -49,10 +49,9 @@ const Products: NextPage<$Products> = ({ searchParams }) => {
 };
 export default Products;
 
-export async function generateMetadata(
-	{ searchParams }: $Products,
-	_parent: ResolvingMetadata,
-): Promise<ResolvingMetadata> {
+export async function generateMetadata({
+	searchParams,
+}: $Products): Promise<ResolvingMetadata> {
 	const q = searchParams.q;
 
 	const text = q === undefined ? '' : q;

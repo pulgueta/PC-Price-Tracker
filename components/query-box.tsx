@@ -9,7 +9,7 @@ export const QueryBox: FC<Query> = ({ query }) => {
 		<section className='w-full rounded bg-secondary p-8'>
 			<p className='text-pretty text-center text-lg font-bold tracking-tight'>
 				Mostrando resultados para:{' '}
-				<span className='italic'>"{query}"</span>
+				<span className='italic'>&quot;{query}&quot;</span>
 			</p>
 		</section>
 	);

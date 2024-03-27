@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { SearchBar } from '@/components/search-bar';
 
 const Home = () => {
+	throw new Error('Global error');
+
 	return (
 		<main className='relative flex min-h-dvh flex-col items-center justify-center gap-4 p-4 md:min-h-[calc(100vh-162px)] md:p-8 lg:min-h-[calc(100vh-160px)]'>
 			<h1 className='text-wrap text-center text-3xl font-extrabold leading-none tracking-tighter drop-shadow-sm md:text-4xl lg:text-5xl'>
