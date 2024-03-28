@@ -1,17 +1,25 @@
 'use client';
 
-import { type ElementRef, useEffect, useRef, useState } from 'react';
+import {
+	type ElementRef,
+	type FormEvent,
+	useEffect,
+	useRef,
+	useState,
+} from 'react';
 import { useFormState } from 'react-dom';
 
 import { useRouter } from 'next/navigation';
 
+import { toast } from 'sonner';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { CheckIcon, InfoIcon } from 'lucide-react';
 
 import { Input } from '../ui/input';
 import { Label } from '../ui/label';
 import { SubmitButton } from './submit-button';
 import { register } from '@/actions/auth/register';
-import { cn } from '@/lib/utils';
+import { cn, randomString } from '@/lib/utils';
 
 export const RegisterForm = () => {
 	const [show, setShow] = useState(false);
@@ -19,6 +27,39 @@ export const RegisterForm = () => {
 	const [state, formAction] = useFormState(register, undefined);
 
 	const { refresh } = useRouter();
+
+	const { executeRecaptcha } = useGoogleReCaptcha();
+
+	const onSubmit = async (e: FormEvent) => {
+		e.preventDefault();
+
+		if (!executeRecaptcha) {
+			toast.error('ReCAPTCHA', {
+				description: 'Error al validar el captcha.',
+			});
+			return;
+		}
+
+		const token = await executeRecaptcha(randomString(10));
+
+		const res = await fetch('/api/captcha', {
+			method: 'POST',
+			body: JSON.stringify({ token }),
+		});
+
+		const data = await res.json();
+
+		if (!res.ok) {
+			toast.error(data.error);
+			return;
+		}
+
+		if (!data.success) {
+			toast.error('ReCAPTCHA', {
+				description: 'Presunto bot detectado.',
+			});
+		}
+	};
 
 	useEffect(() => {
 		if (state?.success) {
@@ -29,7 +70,7 @@ export const RegisterForm = () => {
 	}, [refresh, state]);
 
 	return (
-		<form action={formAction} ref={form}>
+		<form action={formAction} onSubmit={onSubmit} ref={form}>
 			<h1 className='mb-2 border-b pb-2 text-2xl font-bold tracking-tight'>
 				Crear cuenta
 			</h1>
