@@ -1,5 +1,6 @@
 import { LoginForm } from '@/components/form/login-form';
 import { RegisterForm } from '@/components/form/register-form';
+import { ReCAPTCHAProvider } from '@/providers/recaptcha-provider';
 
 const Auth = () => {
 	return (
@@ -10,7 +11,9 @@ const Auth = () => {
 					className='h-1 w-full rounded border lg:mx-4 lg:h-96 lg:w-1'
 					aria-hidden
 				/>
-				<RegisterForm />
+				<ReCAPTCHAProvider>
+					<RegisterForm />
+				</ReCAPTCHAProvider>
 			</article>
 		</section>
 	);
