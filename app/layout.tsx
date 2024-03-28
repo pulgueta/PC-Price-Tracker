@@ -5,9 +5,10 @@ import Script from 'next/script';
 import { Inter } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 
-import { ProgressProvider } from '@/providers/progress-bar-provider';
+import { ClientComponentProviders } from '@/providers';
 import { Navbar } from '@/components/navbar';
 import { Footer } from '@/components/footer';
+import { Toaster } from '@/components/ui/sonner';
 import { env } from '@/env/client/index.mjs';
 
 import './globals.css';
@@ -38,27 +39,26 @@ export const metadata: Metadata = {
 
 type $RootLayout = PropsWithChildren & {};
 
-const RootLayout: FC<$RootLayout> = ({ children }) => {
-	return (
-		<html lang='es'>
-			<body className={inter.className}>
-				<ProgressProvider>
-					<Navbar />
-					{process.env.NODE_ENV === 'production' && (
-						<Script
-							async
-							strategy='lazyOnload'
-							crossOrigin='anonymous'
-							src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${env.NEXT_PUBLIC_ADSENSE_ID}`}
-						/>
-					)}
-					{children}
-					<Footer />
-				</ProgressProvider>
-				{process.env.NODE_ENV === 'production' && <Analytics />}
-			</body>
-		</html>
-	);
-};
+const RootLayout: FC<$RootLayout> = ({ children }) => (
+	<html lang='es'>
+		<body className={inter.className}>
+			<ClientComponentProviders>
+				<Navbar />
+				<Toaster richColors />
+				{process.env.NODE_ENV === 'production' && (
+					<Script
+						async
+						strategy='lazyOnload'
+						crossOrigin='anonymous'
+						src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${env.NEXT_PUBLIC_ADSENSE_ID}`}
+					/>
+				)}
+				{children}
+				<Footer />
+			</ClientComponentProviders>
+			{process.env.NODE_ENV === 'production' && <Analytics />}
+		</body>
+	</html>
+);
 
 export default RootLayout;
