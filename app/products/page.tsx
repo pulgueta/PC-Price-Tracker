@@ -4,8 +4,8 @@ import { QueryBox } from '@/components/query-box';
 import { Separator } from '@/components/ui/separator';
 import { AdSenseBanner } from '@/components/adsense-banner';
 import { ProductCard } from '@/components/products/product-card';
+import { Filter } from '@/components/products/filter';
 import { cn } from '@/lib/utils';
-import { Filter } from './filter';
 
 type $Products = {
 	searchParams: {
