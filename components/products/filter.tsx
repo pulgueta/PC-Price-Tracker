@@ -20,6 +20,7 @@ export const Filter = () => {
 	const searchParams = useSearchParams();
 
 	const priceFilter = searchParams.get('price');
+	const favoriteFilter = searchParams.get('favorite');
 
 	const createQueryString = useCallback(
 		(name: string, value: string) => {
@@ -32,11 +33,8 @@ export const Filter = () => {
 		[searchParams],
 	);
 
-	const onSetPriceFilter = (value: string) => {
-		push(
-			`${pathname}?${createQueryString('price', value)}` as Route<string>,
-		);
-	};
+	const onSetFilter = (query: string, value: string) =>
+		push(`${pathname}?${createQueryString(query, value)}` as Route<string>);
 
 	return (
 		<aside className='size-full rounded border p-4 md:w-96'>
@@ -51,7 +49,28 @@ export const Filter = () => {
 					>
 						<RadioGroup
 							defaultValue={priceFilter ?? 'desc'}
-							onValueChange={onSetPriceFilter}
+							onValueChange={(q) => onSetFilter('price', q)}
+						>
+							<div className='flex items-center space-x-2'>
+								<RadioGroupItem value='asc' id='asc' />
+								<Label htmlFor='asc'>Ascendente</Label>
+							</div>
+							<div className='flex items-center space-x-2'>
+								<RadioGroupItem value='desc' id='desc' />
+								<Label htmlFor='desc'>Descendente</Label>
+							</div>
+						</RadioGroup>
+					</AccordionContent>
+				</AccordionItem>
+				<AccordionItem value='item-2'>
+					<AccordionTrigger>Favoritos</AccordionTrigger>
+					<AccordionContent
+						asChild
+						className='flex items-center space-x-2'
+					>
+						<RadioGroup
+							defaultValue={favoriteFilter ?? 'desc'}
+							onValueChange={(q) => onSetFilter('favorite', q)}
 						>
 							<div className='flex items-center space-x-2'>
 								<RadioGroupItem value='asc' id='asc' />
