@@ -38,7 +38,7 @@ export const RegisterForm = () => {
 			return;
 		}
 
-		const token = await executeRecaptcha(randomString(10));
+		const token = await executeRecaptcha(randomString());
 
 		const res = await fetch('/api/captcha', {
 			method: 'POST',
@@ -94,6 +94,7 @@ export const RegisterForm = () => {
 								<FormLabel>Correo electrónico</FormLabel>
 								<FormControl>
 									<Input
+										autoComplete='new-email'
 										placeholder='Tu correo electrónico'
 										type='email'
 										{...field}
@@ -111,6 +112,7 @@ export const RegisterForm = () => {
 								<FormLabel>Contraseña</FormLabel>
 								<FormControl>
 									<Input
+										autoComplete='new-password'
 										placeholder='Tu contraseña'
 										type='password'
 										{...field}
@@ -128,6 +130,7 @@ export const RegisterForm = () => {
 								<FormLabel>Confirma tu contraseña</FormLabel>
 								<FormControl>
 									<Input
+										autoComplete='new-confirm-password'
 										placeholder='Tu contraseña'
 										type='password'
 										{...field}
