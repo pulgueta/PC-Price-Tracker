@@ -1,4 +1,4 @@
-import type { NextPage, ResolvingMetadata } from 'next';
+import type { NextPage, ResolvingMetadata, Route } from 'next';
 
 import { QueryBox } from '@/components/query-box';
 import { Separator } from '@/components/ui/separator';
@@ -15,6 +15,8 @@ type $Products = {
 // TODO: Correct AdSense tax information and then add <AdSense /> component.
 
 const Products: NextPage<$Products> = ({ searchParams }) => {
+	const product = crypto.randomUUID();
+
 	return (
 		<div className='flex min-h-dvh flex-col items-center gap-4 p-2 md:min-h-[calc(100vh-162px)] md:p-0 lg:min-h-[calc(100vh-160px)]'>
 			{searchParams.q && <QueryBox query={searchParams.q} />}
@@ -44,7 +46,7 @@ const Products: NextPage<$Products> = ({ searchParams }) => {
 				Laudantium, eaque minima repellendus inventore dolore veniam
 				architecto eum voluptate cupiditate eius optio sunt omnis
 				repudiandae ex, dolorum ipsam itaque sed totam!'
-						href='/'
+						href={`/products/${product}` as Route}
 					/>
 					<ProductCard
 						title='Intel Core i9 14900K'
@@ -52,7 +54,7 @@ const Products: NextPage<$Products> = ({ searchParams }) => {
 				Laudantium, eaque minima repellendus inventore dolore veniam
 				architecto eum voluptate cupiditate eius optio sunt omnis
 				repudiandae ex, dolorum ipsam itaque sed totam!'
-						href='/'
+						href={`/products/${product}` as Route}
 					/>
 					<ProductCard
 						title='Intel Core i9 14900K'
@@ -60,7 +62,7 @@ const Products: NextPage<$Products> = ({ searchParams }) => {
 				Laudantium, eaque minima repellendus inventore dolore veniam
 				architecto eum voluptate cupiditate eius optio sunt omnis
 				repudiandae ex, dolorum ipsam itaque sed totam!'
-						href='/'
+						href={`/products/${product}` as Route}
 					/>
 					<ProductCard
 						title='Intel Core i9 14900K'
@@ -68,7 +70,7 @@ const Products: NextPage<$Products> = ({ searchParams }) => {
 				Laudantium, eaque minima repellendus inventore dolore veniam
 				architecto eum voluptate cupiditate eius optio sunt omnis
 				repudiandae ex, dolorum ipsam itaque sed totam!'
-						href='/'
+						href={`/products/${product}` as Route}
 					/>
 					<ProductCard
 						title='Intel Core i9 14900K'
@@ -76,7 +78,7 @@ const Products: NextPage<$Products> = ({ searchParams }) => {
 				Laudantium, eaque minima repellendus inventore dolore veniam
 				architecto eum voluptate cupiditate eius optio sunt omnis
 				repudiandae ex, dolorum ipsam itaque sed totam!'
-						href='/'
+						href={`/products/${product}` as Route}
 					/>
 				</section>
 			</section>
