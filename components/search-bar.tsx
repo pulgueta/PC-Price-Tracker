@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, type ElementRef, type FormEvent } from 'react';
+import { type FC, type ElementRef, type FormEvent, useState } from 'react';
 
 import { useRouter } from 'next/navigation';
 
@@ -20,7 +20,11 @@ import {
 import { categories } from '@/constants/categories';
 import { cn } from '@/lib/utils';
 
-export const SearchBar = () => {
+type $SearchBar = {
+	isHome?: boolean;
+};
+
+export const SearchBar: FC<$SearchBar> = ({ isHome = false }) => {
 	const [open, setOpen] = useState<boolean>(false);
 	const [value, setValue] = useState<string>('');
 
@@ -41,7 +45,10 @@ export const SearchBar = () => {
 
 	return (
 		<form
-			className='flex w-full flex-col items-center gap-4 md:w-auto md:flex-row'
+			className={cn('items-center gap-4', {
+				'flex w-full flex-col md:w-auto md:flex-row': isHome,
+				'flex flex-col': !isHome,
+			})}
 			onSubmit={onSubmit}
 		>
 			<Input className='w-full' name='q' placeholder='Intel Core i7...' />
@@ -52,7 +59,10 @@ export const SearchBar = () => {
 						variant='outline'
 						role='combobox'
 						aria-expanded={open}
-						className='w-full justify-between md:w-auto'
+						className={cn('justify-between', {
+							'w-full md:w-auto': isHome,
+							'w-full': !isHome,
+						})}
 					>
 						{value
 							? categories.find(
@@ -62,7 +72,7 @@ export const SearchBar = () => {
 						<ChevronsUpDown className='ml-2 size-4 shrink-0 opacity-50' />
 					</Button>
 				</PopoverTrigger>
-				<PopoverContent className='w-[200px] p-0'>
+				<PopoverContent className='w-full p-0'>
 					<Command>
 						<CommandInput placeholder='Buscar categoría...' />
 						<CommandList>
@@ -100,7 +110,13 @@ export const SearchBar = () => {
 				</PopoverContent>
 			</Popover>
 
-			<Button type='submit' className='w-full md:w-auto'>
+			<Button
+				type='submit'
+				className={cn({
+					'w-full md:w-auto': isHome,
+					'w-full': !isHome,
+				})}
+			>
 				<SearchIcon className='mr-2 size-4' />
 				Buscar
 			</Button>
