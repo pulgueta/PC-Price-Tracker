@@ -36,12 +36,13 @@ export const metadata: Metadata = {
 		locale: 'es_CO',
 		type: 'website',
 		images: {
-			url: '/og.webp',
+			url: '/pc-price-tracker.webp',
 			alt: 'Analizador de precios',
 			width: 1200,
 			height: 630,
 		},
 	},
+	metadataBase: new URL('https://pc-price-tracker.vercel.app/'),
 	alternates: {
 		canonical: '/',
 	},
