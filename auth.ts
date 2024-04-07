@@ -3,6 +3,7 @@ import { DrizzleAdapter } from '@auth/drizzle-adapter';
 
 import { db } from '@/db';
 import authConfig from './auth.config';
+import { env } from './env/server/index.mjs';
 
 export const {
 	handlers: { GET, POST },
@@ -16,6 +17,7 @@ export const {
 		newUser: '/auth',
 	},
 	adapter: DrizzleAdapter(db),
+	secret: env.AUTH_SECRET,
 	session: { strategy: 'jwt' },
 	...authConfig,
 });

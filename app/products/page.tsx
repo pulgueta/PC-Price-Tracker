@@ -2,7 +2,6 @@ import type { NextPage, ResolvingMetadata } from 'next';
 
 import { QueryBox } from '@/components/query-box';
 import { Separator } from '@/components/ui/separator';
-import { AdSenseBanner } from '@/components/adsense-banner';
 import { ProductCard } from '@/components/products/product-card';
 import { Filter } from '@/components/products/filter';
 import { cn } from '@/lib/utils';
@@ -13,10 +12,11 @@ type $Products = {
 	};
 };
 
+// TODO: Correct AdSense tax information and then add <AdSense /> component.
+
 const Products: NextPage<$Products> = ({ searchParams }) => {
 	return (
 		<div className='flex min-h-dvh flex-col items-center gap-4 p-2 md:min-h-[calc(100vh-162px)] md:p-0 lg:min-h-[calc(100vh-160px)]'>
-			{process.env.NODE_ENV === 'production' && <AdSenseBanner />}
 			{searchParams.q && <QueryBox query={searchParams.q} />}
 
 			<h1
