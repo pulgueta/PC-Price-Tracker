@@ -1,0 +1,51 @@
+name: Code checker
+
+on:
+    workflow_call:
+        secrets:
+            GH_TOKEN:
+                required: false
+
+env:
+    GH_TOKEN: ${{ secrets.GH_TOKEN }}
+
+jobs:
+    code-checker:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            packages: read
+
+        steps:
+            - uses: actions/checkout@v4
+            - name: Use Node.js 20.11.0
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 20.11.0
+            - uses: pnpm/action-setup@v3
+              name: Install pnpm
+              id: pnpm-install
+              with:
+                  version: 8.15.5
+                  run_install: false
+
+            - name: Get pnpm store directory
+              id: pnpm-cache
+              shell: bash
+              run: |
+                  echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
+
+            - uses: actions/cache@v4
+              name: Setup pnpm cache
+              with:
+                  path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
+                  key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+                  restore-keys: |
+                      ${{ runner.os }}-pnpm-store-
+
+            - name: 'Installing dependencies'
+              run: pnpm install
+
+            - name: Running linter
+              run: pnpm run prettier
+              id: lint
