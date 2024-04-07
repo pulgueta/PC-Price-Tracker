@@ -37,13 +37,6 @@ const Home = () => {
 						height={80}
 						className='drop-shadow grayscale transition hover:grayscale-0'
 					/>
-					<Image
-						src='/clonesyperifericoslogo.webp'
-						alt='Clones Y Periféricos Logo'
-						width={128}
-						height={128}
-						className='drop-shadow grayscale transition hover:grayscale-0'
-					/>
 				</div>
 			</section>
 			<div
@@ -54,7 +47,7 @@ const Home = () => {
 				aria-hidden
 				className='absolute bottom-24 right-0 -z-10 size-32 rounded-full bg-green-400/50 blur-3xl'
 			/>
-			<SearchBar />
+			<SearchBar isHome />
 		</main>
 	);
 };
