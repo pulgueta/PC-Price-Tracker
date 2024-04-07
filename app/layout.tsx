@@ -17,6 +17,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
 	title: 'Analizador de precios',
+	applicationName: 'PC Price Tracker',
 	description:
 		'Mantente informado de los precios de los componentes para tu computadora en las mejores tiendas tecnológicas de Colombia.',
 	authors: [
@@ -25,6 +26,28 @@ export const metadata: Metadata = {
 			url: 'https://www.linkedin.com/in/and-rodr/',
 		},
 	],
+	openGraph: {
+		title: 'Analizador de precios',
+		siteName: 'PC Price Tracker',
+		description:
+			'Mantente informado de los precios de los componentes para tu computadora en las mejores tiendas tecnológicas de Colombia.',
+		url: 'https://pc-price-tracker.vercel.app/',
+		countryName: 'Colombia',
+		locale: 'es_CO',
+		type: 'website',
+		images: {
+			url: '/og.webp',
+			alt: 'Analizador de precios',
+			width: 1200,
+			height: 630,
+		},
+	},
+	alternates: {
+		canonical: '/',
+	},
+	twitter: {
+		creator: '@pulgueta_',
+	},
 	creator: 'Andrés Rodríguez',
 	keywords: [
 		'pc',
