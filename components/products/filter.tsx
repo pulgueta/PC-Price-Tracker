@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/accordion';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { SearchBar } from '../search-bar';
 
 export const Filter = () => {
 	const { push } = useRouter();
@@ -20,7 +21,6 @@ export const Filter = () => {
 	const searchParams = useSearchParams();
 
 	const priceFilter = searchParams.get('price');
-	const favoriteFilter = searchParams.get('favorite');
 
 	const createQueryString = useCallback(
 		(name: string, value: string) => {
@@ -62,28 +62,12 @@ export const Filter = () => {
 						</RadioGroup>
 					</AccordionContent>
 				</AccordionItem>
-				<AccordionItem value='item-2'>
-					<AccordionTrigger>Favoritos</AccordionTrigger>
-					<AccordionContent
-						asChild
-						className='flex items-center space-x-2'
-					>
-						<RadioGroup
-							defaultValue={favoriteFilter ?? 'desc'}
-							onValueChange={(q) => onSetFilter('favorite', q)}
-						>
-							<div className='flex items-center space-x-2'>
-								<RadioGroupItem value='asc' id='asc' />
-								<Label htmlFor='asc'>Ascendente</Label>
-							</div>
-							<div className='flex items-center space-x-2'>
-								<RadioGroupItem value='desc' id='desc' />
-								<Label htmlFor='desc'>Descendente</Label>
-							</div>
-						</RadioGroup>
-					</AccordionContent>
-				</AccordionItem>
 			</Accordion>
+
+			<h3 className='mb-2 mt-4 text-xl font-bold tracking-tight'>
+				Otra búsqueda
+			</h3>
+			<SearchBar />
 		</aside>
 	);
 };
