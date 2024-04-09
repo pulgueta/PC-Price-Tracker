@@ -3,9 +3,9 @@ import { test, expect } from '@playwright/test';
 import { landing, buttons, categories, placeholders } from '@/i18n/es.json';
 
 test('Checks initial content', async ({ page }) => {
-	await page.goto('/');
-
 	const url = process.env.BASE_URL as string;
+
+	await page.goto(url);
 
 	expect(page.url()).toBe(url);
 
@@ -36,9 +36,10 @@ test('Checks initial content', async ({ page }) => {
 });
 
 test('Inserts a query and goes to products page', async ({ page }) => {
-	await page.goto('/');
-
 	const url = process.env.BASE_URL as string;
+
+	await page.goto(url);
+
 	const query = 'nvidia rtx';
 	const encodedQuery = encodeURIComponent(query);
 
