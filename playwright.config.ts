@@ -38,9 +38,8 @@ export default defineConfig({
 		},
 	],
 	webServer: {
-		command: 'npm run dev',
+		command: 'pnpm start',
 		url: process.env.BASE_URL,
 		reuseExistingServer: !process.env.CI,
-		timeout: 3000,
 	},
 });
