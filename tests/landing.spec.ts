@@ -61,6 +61,6 @@ test('Inserts a query and goes to products page', async ({ page }) => {
 	);
 
 	expect(page).toHaveURL(
-		`${url}products?q=${encodedQuery}&category=${categories.gpu.value}`,
+		`http://127.0.0.1:3000/products?q=${encodedQuery}&category=${categories.gpu.value}`,
 	);
 });
