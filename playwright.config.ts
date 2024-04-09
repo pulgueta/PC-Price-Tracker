@@ -9,7 +9,7 @@ export default defineConfig({
 	workers: process.env.CI ? 1 : undefined,
 	reporter: 'html',
 	use: {
-		baseURL: 'http://127.0.0.1:3000',
+		baseURL: process.env.BASE_URL,
 		screenshot: 'only-on-failure',
 		trace: 'on-first-retry',
 	},
@@ -38,8 +38,8 @@ export default defineConfig({
 		},
 	],
 	webServer: {
-		command: 'pnpm start',
-		url: 'http://127.0.0.1:3000',
+		command: 'npm run start',
+		url: process.env.BASE_URL,
 		reuseExistingServer: !process.env.CI,
 	},
 });
