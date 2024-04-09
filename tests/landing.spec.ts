@@ -7,7 +7,7 @@ test('Checks initial content', async ({ page }) => {
 
 	await page.goto(url);
 
-	expect(page.url()).toBe(url);
+	expect(page).toHaveURL(url);
 
 	const h1 = page.getByRole('heading', {
 		name: landing.heading,
@@ -43,7 +43,7 @@ test('Inserts a query and goes to products page', async ({ page }) => {
 	const query = 'nvidia rtx';
 	const encodedQuery = encodeURIComponent(query);
 
-	expect(page.url()).toBe(url);
+	expect(page).toHaveURL(url);
 
 	await page
 		.getByPlaceholder(placeholders.inputs.queryPlaceholder)
