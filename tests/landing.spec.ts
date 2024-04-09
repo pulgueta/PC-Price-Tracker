@@ -60,7 +60,7 @@ test('Inserts a query and goes to products page', async ({ page }) => {
 		`http://127.0.0.1:3000/products?q=${encodedQuery}&category=${categories.gpu.value}`,
 	);
 
-	expect(page.url()).toBe(
+	expect(page).toHaveURL(
 		`${url}products?q=${encodedQuery}&category=${categories.gpu.value}`,
 	);
 });
