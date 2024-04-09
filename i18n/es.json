@@ -1,0 +1,48 @@
+{
+	"landing": {
+		"heading": "Todos los precios de tus componentes favoritos",
+		"subheading": "¡En un solo lugar!",
+		"storesHeading": "Aquí encontrarás precios de:"
+	},
+	"buttons": {
+		"searchButton": "Buscar",
+		"combobox": "Selecciona una categoría"
+	},
+	"categories": {
+		"cpu": {
+			"label": "Procesadores",
+			"value": "cpu"
+		},
+		"gpu": {
+			"label": "Tarjetas gráficas",
+			"value": "gpu"
+		},
+		"psu": {
+			"label": "Fuentes de poder",
+			"value": "psu"
+		},
+		"case": {
+			"label": "Cajas",
+			"value": "case"
+		},
+		"ram": {
+			"label": "Memoria RAM",
+			"value": "ram"
+		},
+		"mobo": {
+			"label": "Placas base",
+			"value": "mobo"
+		}
+	},
+	"placeholders": {
+		"images": {
+			"tauret": "Logo de Tauret Computadores",
+			"themark": "Logo de TheMark",
+			"speedlogic": "Logo de Speed Logic"
+		},
+		"inputs": {
+			"queryPlaceholder": "Intel Core i7...",
+			"comboboxPlaceholder": "Buscar categoría..."
+		}
+	}
+}
