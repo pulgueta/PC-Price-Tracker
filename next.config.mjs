@@ -2,6 +2,7 @@ import { withSentryConfig } from '@sentry/nextjs';
 import { next } from 'million/compiler';
 
 import './env/server/index.mjs';
+import './env/client/index.mjs';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
