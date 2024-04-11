@@ -122,10 +122,7 @@
 		"channels": 5,
 		"channel_wattage": 6,
 		"pwm": false,
-		"form_factor": [
-			2,
-			5.25
-		],
+		"form_factor": [2, 5.25],
 		"color": null
 	},
 	{
@@ -206,10 +203,7 @@
 		"channels": 5,
 		"channel_wattage": 25,
 		"pwm": false,
-		"form_factor": [
-			2,
-			5.25
-		],
+		"form_factor": [2, 5.25],
 		"color": null
 	},
 	{
@@ -272,10 +266,7 @@
 		"channels": 4,
 		"channel_wattage": 6,
 		"pwm": false,
-		"form_factor": [
-			2,
-			5.25
-		],
+		"form_factor": [2, 5.25],
 		"color": null
 	},
 	{
@@ -374,10 +365,7 @@
 		"channels": 4,
 		"channel_wattage": 6,
 		"pwm": false,
-		"form_factor": [
-			2,
-			5.25
-		],
+		"form_factor": [2, 5.25],
 		"color": null
 	},
 	{
