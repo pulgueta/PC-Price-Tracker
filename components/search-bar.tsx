@@ -53,6 +53,7 @@ export const SearchBar: FC<$SearchBar> = ({ isHome = false }) => {
 				'flex flex-col': !isHome,
 			})}
 			onSubmit={onSubmit}
+			role='search'
 		>
 			<Input
 				className='w-full'
