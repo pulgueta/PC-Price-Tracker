@@ -17,5 +17,4 @@ init({
 
 	// uncomment the line below to enable Spotlight (https://spotlightjs.com)
 	enabled: process.env.NODE_ENV === 'production',
-	spotlight: process.env.NODE_ENV === 'development',
 });

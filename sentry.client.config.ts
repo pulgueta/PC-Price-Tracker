@@ -3,7 +3,6 @@
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 
 import { init, replayIntegration } from '@sentry/nextjs';
-import { init as spotlightInit } from '@spotlightjs/spotlight';
 
 import { env } from './env/client/index.mjs';
 
@@ -32,7 +31,3 @@ init({
 	],
 	enabled: process.env.NODE_ENV === 'production',
 });
-
-if (process.env.NODE_ENV === 'development') {
-	spotlightInit();
-}
