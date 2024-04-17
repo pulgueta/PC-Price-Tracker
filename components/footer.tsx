@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 
 import { GitHubLogo } from './svg/github';
 import { TwitterLogo } from './svg/twitter';
