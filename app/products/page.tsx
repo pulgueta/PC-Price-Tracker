@@ -1,24 +1,27 @@
-import type { NextPage, ResolvingMetadata, Route } from 'next';
+import type { NextPage, ResolvingMetadata } from 'next';
 
 import { QueryBox } from '@/components/query-box';
 import { Separator } from '@/components/ui/separator';
-import { ProductCard } from '@/components/products/product-card';
 import { Filter } from '@/components/products/filter';
+import { AdSenseBanner } from '@/components/adsense-banner';
+import { ProductsGrid } from '@/components/products/products-grid';
 import { cn } from '@/lib/utils';
+import translations from '@/i18n/es.json';
 
 type $Products = {
 	searchParams: {
-		q: string | string[];
+		q: string;
+		category: string;
 	};
 };
 
-// TODO: Correct AdSense tax information and then add <AdSense /> component.
-
-const Products: NextPage<$Products> = ({ searchParams }) => {
-	const product = crypto.randomUUID();
+const Products: NextPage<$Products> = async ({ searchParams }) => {
+	const { responses, products } = translations;
 
 	return (
 		<div className='flex min-h-dvh flex-col items-center gap-4 p-2 md:min-h-[calc(100vh-162px)] md:p-0 lg:min-h-[calc(100vh-160px)]'>
+			{process.env.NODE_ENV === 'production' && <AdSenseBanner />}
+
 			{searchParams.q && <QueryBox query={searchParams.q} />}
 
 			<h1
@@ -30,56 +33,21 @@ const Products: NextPage<$Products> = ({ searchParams }) => {
 					},
 				)}
 			>
-				{searchParams.q
-					? 'Resultados de tu búsqueda'
-					: 'Todos los productos'}
+				{searchParams.q ? products.queryResults : products.allProducts}
 			</h1>
 
 			<Separator className='max-w-4xl' />
 
 			<section className='flex flex-col items-center justify-between gap-4 p-4 md:flex-row md:items-start lg:gap-2'>
 				<Filter />
-				<section className='mx-auto grid w-full grid-cols-1 justify-items-center gap-4 md:container lg:grid-cols-2 xl:grid-cols-3'>
-					<ProductCard
-						title='Intel Core i9 14900K'
-						description='Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-				Laudantium, eaque minima repellendus inventore dolore veniam
-				architecto eum voluptate cupiditate eius optio sunt omnis
-				repudiandae ex, dolorum ipsam itaque sed totam!'
-						href={`/products/${product}` as Route}
-					/>
-					<ProductCard
-						title='Intel Core i9 14900K'
-						description='Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-				Laudantium, eaque minima repellendus inventore dolore veniam
-				architecto eum voluptate cupiditate eius optio sunt omnis
-				repudiandae ex, dolorum ipsam itaque sed totam!'
-						href={`/products/${product}` as Route}
-					/>
-					<ProductCard
-						title='Intel Core i9 14900K'
-						description='Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-				Laudantium, eaque minima repellendus inventore dolore veniam
-				architecto eum voluptate cupiditate eius optio sunt omnis
-				repudiandae ex, dolorum ipsam itaque sed totam!'
-						href={`/products/${product}` as Route}
-					/>
-					<ProductCard
-						title='Intel Core i9 14900K'
-						description='Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-				Laudantium, eaque minima repellendus inventore dolore veniam
-				architecto eum voluptate cupiditate eius optio sunt omnis
-				repudiandae ex, dolorum ipsam itaque sed totam!'
-						href={`/products/${product}` as Route}
-					/>
-					<ProductCard
-						title='Intel Core i9 14900K'
-						description='Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-				Laudantium, eaque minima repellendus inventore dolore veniam
-				architecto eum voluptate cupiditate eius optio sunt omnis
-				repudiandae ex, dolorum ipsam itaque sed totam!'
-						href={`/products/${product}` as Route}
-					/>
+				<section className='mx-auto w-full gap-4 md:container'>
+					{!searchParams.q ? (
+						<h2 className='text-wrap text-center text-2xl font-bold tracking-tight md:text-left'>
+							{responses['page.products'].notFound}
+						</h2>
+					) : (
+						<ProductsGrid searchParams={searchParams} />
+					)}
 				</section>
 			</section>
 		</div>
