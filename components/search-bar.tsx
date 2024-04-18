@@ -38,7 +38,7 @@ export const SearchBar: FC<$SearchBar> = ({ isHome = false }) => {
 
 		const formData = new FormData(e.currentTarget);
 
-		const q = formData.get('q') as string;
+		const q = (formData.get('q') as string).replace(/([^\s])\s+$/, '$1');
 
 		if (q.length < 3) return;
 		if (value.length < 3) return;
