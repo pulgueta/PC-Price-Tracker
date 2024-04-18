@@ -8,6 +8,18 @@
 		"searchButton": "Buscar",
 		"combobox": "Selecciona una categoría"
 	},
+	"products": {
+		"allProducts": "Todos los productos",
+		"queryResults": "Resultados de tu búsqueda"
+	},
+	"productCard": {
+		"price": {
+			"notAvailable": "No disponible",
+			"priceInUsd": "Precio aproximado en USD"
+		},
+		"href": "Ver más",
+		"category": "Categoría"
+	},
 	"categories": {
 		"cpu": {
 			"label": "Procesadores",
@@ -44,5 +56,16 @@
 			"queryPlaceholder": "Intel Core i7...",
 			"comboboxPlaceholder": "Buscar categoría..."
 		}
+	},
+	"responses": {
+		"endpoint.products": {
+			"notFound": "No se encontraron datos de tu producto."
+		},
+		"page.products": {
+			"notFound": "Debes realizar una búsqueda para ver productos"
+		}
+	},
+	"errors": {
+		"queryError": "Ocurrió un error al realizar la búsqueda: "
 	}
 }
