@@ -9,14 +9,21 @@ export const POST = async (req: NextRequest) => {
 
 	const q = searchParams.get('q') as string;
 	const category = searchParams.get('category') as string;
+	const page = Number(searchParams.get('page')) || 0;
+
+	const itemsPerPage = 12;
+	const startIndex = page * itemsPerPage;
+	const endIndex = (page + 1) * itemsPerPage;
 
 	switch (category) {
 		case categories.cpu.value:
 			const cpuData = (await import('@/data/json/cpu.json')).default;
 
-			const cpus = cpuData.filter((val) =>
-				val.name.toLowerCase().includes(q.toLowerCase()),
-			);
+			const cpus = cpuData
+				.filter((val) =>
+					val.name.toLowerCase().includes(q.toLowerCase()),
+				)
+				.slice(startIndex, endIndex);
 
 			return NextResponse.json(cpus, { status: 200 });
 
@@ -26,7 +33,9 @@ export const POST = async (req: NextRequest) => {
 
 			const pattern = new RegExp(q.split(' ').join('|'), 'i');
 
-			const gpus = gpuData.filter((val) => pattern.test(val.name));
+			const gpus = gpuData
+				.filter((val) => pattern.test(val.name))
+				.slice(startIndex, endIndex);
 
 			return NextResponse.json(gpus, { status: 200 });
 
