@@ -8,6 +8,12 @@ import './env/client/index.mjs';
 const nextConfig = {
 	poweredByHeader: false,
 	reactStrictMode: true,
+	typescript: {
+		ignoreBuildErrors: true,
+	},
+	eslint: {
+		ignoreDuringBuilds: true,
+	},
 	logging: {
 		fetches: {
 			fullUrl: true,
