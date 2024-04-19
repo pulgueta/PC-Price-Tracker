@@ -19,12 +19,15 @@ import {
 } from './ui/command';
 import { categories } from '@/constants/categories';
 import { cn } from '@/lib/utils';
+import translations from '@/i18n/es.json';
 
 type $SearchBar = {
 	isHome?: boolean;
 };
 
 export const SearchBar: FC<$SearchBar> = ({ isHome = false }) => {
+	const { buttons, placeholders } = translations;
+
 	const [open, setOpen] = useState<boolean>(false);
 	const [value, setValue] = useState<string>('');
 
@@ -35,7 +38,7 @@ export const SearchBar: FC<$SearchBar> = ({ isHome = false }) => {
 
 		const formData = new FormData(e.currentTarget);
 
-		const q = formData.get('q') as string;
+		const q = (formData.get('q') as string).replace(/([^\s])\s+$/, '$1');
 
 		if (q.length < 3) return;
 		if (value.length < 3) return;
@@ -50,8 +53,13 @@ export const SearchBar: FC<$SearchBar> = ({ isHome = false }) => {
 				'flex flex-col': !isHome,
 			})}
 			onSubmit={onSubmit}
+			role='search'
 		>
-			<Input className='w-full' name='q' placeholder='Intel Core i7...' />
+			<Input
+				className='w-full'
+				name='q'
+				placeholder={placeholders.inputs.queryPlaceholder}
+			/>
 
 			<Popover open={open} onOpenChange={setOpen}>
 				<PopoverTrigger asChild>
@@ -66,15 +74,20 @@ export const SearchBar: FC<$SearchBar> = ({ isHome = false }) => {
 					>
 						{value
 							? categories.find(
-									(category) => category.value === value,
-								)?.label
-							: 'Selecciona una categoría'}
+									(category) =>
+										category.value.value === value,
+								)?.label.label
+							: buttons.combobox}
 						<ChevronsUpDown className='ml-2 size-4 shrink-0 opacity-50' />
 					</Button>
 				</PopoverTrigger>
 				<PopoverContent className='w-full p-0'>
 					<Command>
-						<CommandInput placeholder='Buscar categoría...' />
+						<CommandInput
+							placeholder={
+								placeholders.inputs.comboboxPlaceholder
+							}
+						/>
 						<CommandList>
 							<CommandEmpty>
 								No se encontró la categoría
@@ -82,8 +95,8 @@ export const SearchBar: FC<$SearchBar> = ({ isHome = false }) => {
 							<CommandGroup>
 								{categories.map((category) => (
 									<CommandItem
-										key={category.value}
-										value={category.value}
+										key={category.value.value}
+										value={category.value.value}
 										onSelect={(currentValue) => {
 											setValue(
 												currentValue === value
@@ -96,12 +109,12 @@ export const SearchBar: FC<$SearchBar> = ({ isHome = false }) => {
 										<CheckIcon
 											className={cn(
 												'mr-2 h-4 w-4',
-												value === category.value
+												value === category.value.value
 													? 'opacity-100'
 													: 'opacity-0',
 											)}
 										/>
-										{category.label}
+										{category.label.label}
 									</CommandItem>
 								))}
 							</CommandGroup>
@@ -118,7 +131,7 @@ export const SearchBar: FC<$SearchBar> = ({ isHome = false }) => {
 				})}
 			>
 				<SearchIcon className='mr-2 size-4' />
-				Buscar
+				{buttons.searchButton}
 			</Button>
 		</form>
 	);

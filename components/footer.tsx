@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import { Link } from 'next-view-transitions';
 
 import { GitHubLogo } from './svg/github';
 import { TwitterLogo } from './svg/twitter';
@@ -14,23 +14,25 @@ export const Footer = () => {
 			</Link>
 			<ul className='flex flex-col gap-4 text-right tracking-tighter md:flex-row md:text-sm'>
 				<li>
-					<Link
+					<a
 						href='https://github.com/pulgueta/PC-Price-Tracker'
 						target='_blank'
 						className='flex items-center justify-end gap-x-1 font-semibold hover:underline'
+						rel='noopener noreferrer'
 					>
 						<GitHubLogo />
 						GitHub
-					</Link>
+					</a>
 				</li>
 				<li>
-					<Link
+					<a
 						href='https://twitter.com/pulgueta_'
 						target='_blank'
 						className='flex items-center justify-end gap-x-1 font-semibold hover:underline'
+						rel='noopener noreferrer'
 					>
 						<TwitterLogo /> X (Twitter)
-					</Link>
+					</a>
 				</li>
 			</ul>
 		</footer>

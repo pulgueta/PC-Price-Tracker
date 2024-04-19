@@ -1,5 +1,4 @@
-import Link from 'next/link';
-
+import { Link } from 'next-view-transitions';
 import { MenuIcon, UserIcon } from 'lucide-react';
 
 import { buttonVariants } from './ui/button';

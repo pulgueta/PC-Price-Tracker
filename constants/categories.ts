@@ -1,8 +1,28 @@
+import i18nCategories from '@/i18n/es.json';
+
 export const categories = [
-	{ label: 'Procesadores', value: 'cpu' },
-	{ label: 'Tarjetas gráficas', value: 'gpu' },
-	{ label: 'Fuentes de poder', value: 'psu' },
-	{ label: 'Cajas', value: 'case' },
-	{ label: 'Memoria RAM', value: 'ram' },
-	{ label: 'Placas base', value: 'mobo' },
+	{
+		label: i18nCategories.categories.cpu,
+		value: i18nCategories.categories.cpu,
+	},
+	{
+		label: i18nCategories.categories.gpu,
+		value: i18nCategories.categories.gpu,
+	},
+	{
+		label: i18nCategories.categories.psu,
+		value: i18nCategories.categories.psu,
+	},
+	{
+		label: i18nCategories.categories.case,
+		value: i18nCategories.categories.case,
+	},
+	{
+		label: i18nCategories.categories.ram,
+		value: i18nCategories.categories.ram,
+	},
+	{
+		label: i18nCategories.categories.mobo,
+		value: i18nCategories.categories.mobo,
+	},
 ] as const;

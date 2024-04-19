@@ -1,6 +1,9 @@
 node_modules
-
-# Next.js & Vercel Directories
-.next
-.swc
+test-results
+playwright-report
 build
+dist
+.vscode
+.next
+.DS_Store
+.swc
